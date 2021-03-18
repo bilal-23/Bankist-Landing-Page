@@ -31,7 +31,7 @@
             <a href="#section--2" class="nav__link">Operations</a>
           </li>
           <li class="nav__item">
-            <a href="#section--1" class="nav__link">Testimonials</a>
+            <a href="#section--3" class="nav__link">Testimonials</a>
           </li>
           <li class="nav__item">
             <a
@@ -135,7 +135,7 @@
     </section>
 
     <!-- SECTION-2 -->
-    <section class="section section-2">
+    <section class="section" id="section--2">
       <div class="section__title">
         <h2 class="section__description">Operations</h2>
         <h3 class="section__header">
@@ -147,7 +147,8 @@
         <div class="operations__tab-container">
           '
           <button
-            class="btn operations__tab operations__tab--1 operation__tab--active"
+            class="btn operations__tab operations__tab--1 operations__tab--active"
+            data-tab="1"
           >
             <span>01</span>Instant Transfers
           </button>
@@ -247,7 +248,7 @@
           </div>
         </div>
 
-        <div class="slide slide--2">
+        <!-- <div class="slide slide--2">
           <div class="testimonial">
             <h5 class="testimonial__header">
               The last step to becoming a complete minimalist
@@ -265,9 +266,9 @@
               <p class="testimonial__location">London, UK</p>
             </address>
           </div>
-        </div>
+        </div> -->
 
-        <div class="slide slide--3">
+        <!-- <div class="slide slide--3">
           <div class="testimonial">
             <h5 class="testimonial__header">
               Finally free from old-school banks
@@ -286,7 +287,7 @@
               <p class="testimonial__location">Lisbon, Portugal</p>
             </address>
           </div>
-        </div>
+        </div> -->
         <button class="slider__btn slider__btn--left">&larr;</button>
         <button class="slider__btn slider__btn--right">&rarr;</button>
         <div class="dots"></div>
@@ -331,5 +332,26 @@
       </ul>
       <img src="img/icon.png" alt="Logo" class="footer__logo" />
     </footer>
+
+    <!-- MODAL -->
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+        Open your bank account <br />
+        in just <span class="highlight">5 minutes</span>
+      </h2>
+      <form class="modal__form">
+        <label>First Name</label>
+        <input type="text" />
+        <label>Last Name</label>
+        <input type="text" />
+        <label>Email Address</label>
+        <input type="email" />
+        <button class="btn">Next step &rarr;</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+    ++
   </body>
+  <script src="script.js"></script>
 </html>
