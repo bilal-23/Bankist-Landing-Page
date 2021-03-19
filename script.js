@@ -134,7 +134,7 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 // const observer = new IntersectionObserver(obsCallBack, obsOption);
 // observer.observe(document.querySelector('.header'))
 const navHeight = nav.getBoundingClientRect().height
-console.log(navHeight)
+
 
 function stickyNav(entries, observer) {
     const [entry] = entries;
@@ -149,6 +149,134 @@ function stickyNav(entries, observer) {
 const headObserver = new IntersectionObserver(stickyNav, { root: null, threshold: 0, rootMargin: `-${navHeight}px` });
 headObserver.observe(document.querySelector('.header'))
 
+////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+//Reveal Sections
+// const allSections = document.querySelectorAll('.section')
+
+// function revealSection(entries, observer) {
+//     const [entry] = entries;
+//     if (!entry.isIntersecting) return;
+
+//     entry.target.classList.remove('section--hidden');
+//     sectionObserver.unobserve(entry.target)
+// }
+
+// const sectionObserver = new IntersectionObserver(revealSection, {
+//     root: null,
+//     threshold: 0.15,
+// });
+
+// allSections.forEach(section => {
+//     sectionObserver.observe(section);
+//     section.classList.add('section--hidden');
+// });
+///////////////////////////////////////////////////
+//////////////////////////////////////////////////
+
+//Lazy Loading Images
+const imgTarget = document.querySelectorAll('img[data-src]');
+function loadImg(entries, observer) {
+    const [entry] = entries;
+
+    if (!entry.isIntersecting) return;
+
+    //Replace src with data-src
+    entry.target.src = entry.target.dataset.src;
+    entry.target.addEventListener('load', function () {
+        entry.target.classList.remove('lazy-img')
+    })
+    imgObserver.unobserve(entry.target)
+}
+
+const imgObserver = new IntersectionObserver(loadImg, { root: null, threshold: 0, rootMargin: `200px` })
+imgTarget.forEach(img => imgObserver.observe(img))
+//////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+// SLIDER
+const slides = document.querySelectorAll('.slide');
+const slider = document.querySelector('.slider');
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+const dotContainer = document.querySelector('.dots');
+
+
+let curSlide = 0;
+const maxSlide = slides.length;
+
+
+// slides.forEach((s, i) => {
+//     s.style.transform = `translateX(${i * 100}%)`
+// })
+function createDots() {
+    slides.forEach((slide, index) => {
+        dotContainer.insertAdjacentHTML('beforeend',
+            `<button class= 'dots__dot' data-slide='${index}'></button>`
+        )
+    })
+}
+
+function activateDots(slide) {
+    const dots = document.querySelectorAll('.dots__dot');
+    dots.forEach(dot => {
+        dot.classList.remove('dots__dot--active');
+    });
+    document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active');
+}
+
+function goToSlide(slide) {
+    slides.forEach((s, i) => {
+        s.style.transform = `translateX(${100 * (i - slide)}%)`
+    })
+}
+
+function nextSlide() {
+    if (curSlide === maxSlide - 1) {
+        curSlide = 0;
+    } else {
+        curSlide++;
+    }
+    goToSlide(curSlide);
+    activateDots(curSlide);
+}
+function prevSlide() {
+    if (curSlide === 0) {
+        curSlide = maxSlide - 1;
+    } else {
+        curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDots(curSlide);
+}
+
+
+
+function init() {
+    createDots();
+    goToSlide(curSlide);
+    activateDots(curSlide);
+}
+init();
+
+//EVENT HANDLERS
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
+document.addEventListener('keydown', function (e) {
+    e.keyCode === 39 && nextSlide(); //right
+
+    e.keyCode === 37 && prevSlide(); //left
+
+});
+
+dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+        const { slide } = e.target.dataset;
+        goToSlide(slide);
+        activateDots(slide);
+    }
+})
 ///////////////
 
 // const openModal = function () {
