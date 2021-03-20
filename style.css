@@ -831,10 +831,21 @@ h4 {
   .footer__item {
     margin-right: 1rem;
   }
+  .modal {
+    max-width: 50rem;
+    padding: 3rem 1rem;
+  }
   .modal__header {
     font-size: 2rem;
   }
   .modal__form {
     gap: 1rem;
+    margin: 0 1.5rem;
+  }
+  .modal__form label {
+    font-size: 1.5rem;
+  }
+  .modal__form input {
+    font-size: 1.4rem;
   }
 }
