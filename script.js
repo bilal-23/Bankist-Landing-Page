@@ -153,25 +153,25 @@ headObserver.observe(document.querySelector('.header'))
 ///////////////////////////////////////////////////
 
 //Reveal Sections
-// const allSections = document.querySelectorAll('.section')
+const allSections = document.querySelectorAll('.section')
 
-// function revealSection(entries, observer) {
-//     const [entry] = entries;
-//     if (!entry.isIntersecting) return;
+function revealSection(entries, observer) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
 
-//     entry.target.classList.remove('section--hidden');
-//     sectionObserver.unobserve(entry.target)
-// }
+    entry.target.classList.remove('section--hidden');
+    sectionObserver.unobserve(entry.target)
+}
 
-// const sectionObserver = new IntersectionObserver(revealSection, {
-//     root: null,
-//     threshold: 0.15,
-// });
+const sectionObserver = new IntersectionObserver(revealSection, {
+    root: null,
+    threshold: 0.15,
+});
 
-// allSections.forEach(section => {
-//     sectionObserver.observe(section);
-//     section.classList.add('section--hidden');
-// });
+allSections.forEach(section => {
+    sectionObserver.observe(section);
+    section.classList.add('section--hidden');
+});
 ///////////////////////////////////////////////////
 //////////////////////////////////////////////////
 
@@ -277,26 +277,31 @@ dotContainer.addEventListener('click', function (e) {
         activateDots(slide);
     }
 })
-///////////////
+///////////////////////////////////////
+///////////////////////////////////////
 
-// const openModal = function () {
-//     modal.classList.remove('hidden');
-//     overlay.classList.remove('hidden');
-// };
+//MODAL
 
-// const closeModal = function () {
-//     modal.classList.add('hidden');
-//     overlay.classList.add('hidden');
-// };
+const openModal = function () {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
 
-// for (let i = 0; i < btnsOpenModal.length; i++)
-//     btnsOpenModal[i].addEventListener('click', openModal);
+const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
 
-// btnCloseModal.addEventListener('click', closeModal);
-// overlay.addEventListener('click', closeModal);
+for (let i = 0; i < btnsOpenModal.length; i++)
+    btnsOpenModal[i].addEventListener('click', openModal);
+
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
 
 // document.addEventListener('keydown', function (e) {
 //     if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
 //         closeModal();
 //     }
 // });
+
+
