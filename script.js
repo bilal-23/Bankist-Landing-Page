@@ -153,25 +153,25 @@ headObserver.observe(document.querySelector('.header'))
 ///////////////////////////////////////////////////
 
 //Reveal Sections
-// const allSections = document.querySelectorAll('.section')
+const allSections = document.querySelectorAll('.section')
 
-// function revealSection(entries, observer) {
-//     const [entry] = entries;
-//     if (!entry.isIntersecting) return;
+function revealSection(entries, observer) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
 
-//     entry.target.classList.remove('section--hidden');
-//     sectionObserver.unobserve(entry.target)
-// }
+    entry.target.classList.remove('section--hidden');
+    sectionObserver.unobserve(entry.target)
+}
 
-// const sectionObserver = new IntersectionObserver(revealSection, {
-//     root: null,
-//     threshold: 0.15,
-// });
+const sectionObserver = new IntersectionObserver(revealSection, {
+    root: null,
+    threshold: 0.15,
+});
 
-// allSections.forEach(section => {
-//     sectionObserver.observe(section);
-//     section.classList.add('section--hidden');
-// });
+allSections.forEach(section => {
+    sectionObserver.observe(section);
+    section.classList.add('section--hidden');
+});
 ///////////////////////////////////////////////////
 //////////////////////////////////////////////////
 
