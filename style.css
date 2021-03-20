@@ -120,7 +120,7 @@ img {
   justify-content: space-between;
   align-items: center;
   height: 9rem;
-  width: 100%;
+  max-width: 100%;
   padding: 0 6rem;
   z-index: 100;
   transition: all 1s ease;
@@ -643,29 +643,38 @@ h4 {
 
 @media (max-width: 900px) {
   .nav {
-    display: flex;
-    flex-direction: column;
     padding: 0 3rem;
+  }
+  .nav__logo {
+    height: 5rem;
+  }
+  .nav__item {
+    margin-left: 2rem;
   }
   .nav__link:link,
   .nav__link:visited {
-    font-size: 1.4rem;
-  }
-  .header__title {
-    row-gap: 1rem;
+    font-size: 1.5rem;
   }
   .header__img {
-    width: 95%;
-    transform: translateY(0rem);
+    transform: translateY(0);
   }
-  .section {
-    /* border: 2px solid red; */
-    padding: 15rem 1rem;
+
+  /* Hero Section */
+  .header {
+    height: 70vh;
   }
-  .section__title {
-    /* border: 2px solid red; */
-    max-width: 80%;
-    margin: 0px auto 5rem auto;
+  .header__title {
+    max-width: 100%;
+    row-gap: 2rem;
+  }
+  h1 {
+    font-size: 4.5rem;
+  }
+  h4 {
+    font-size: 2rem;
+  }
+  .btn--text {
+    font-size: 1.5rem;
   }
   .section__description {
     font-size: 1.5rem;
@@ -674,112 +683,38 @@ h4 {
     font-size: 3rem;
   }
   .features {
-    margin: 0 5rem;
+    gap: 3rem;
+    margin: 0 3rem;
   }
-  .features__header {
-    font-size: 1.8rem;
-  }
-  .btn {
-    font-size: 1.3rem;
-    padding: 1rem 4rem;
-  }
-  .operations__content {
-    font-size: 1.5rem;
-    padding: 2.5rem 5rem 6.5rem 5rem;
-  }
-  .section--sign-up {
-    padding: 5rem 3rem;
-  }
-  .footer {
-    padding: 5rem 1rem;
-  }
-  .footer__link {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .nav {
-    flex-direction: column;
-  }
-  .nav__item {
-    margin-left: 0.7rem;
-  }
-  .nav__link:link,
-  .nav__link:visited {
-    font-size: 1rem;
-  }
-  .header__title {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10rem;
-    justify-content: start;
-  }
-  h1 {
-    font-size: 3rem;
-  }
-  h4 {
-    font-size: 2rem;
-  }
-  .header__img {
-    display: none;
-  }
-  .section {
-    padding: 8rem 0.7rem;
-  }
-  .section__header {
-    font-size: 2rem;
-  }
-  .features {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    gap: 1rem;
-  }
-  .features__icon {
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-  .features__img {
-    display: none;
-  }
-  .features__header {
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 2re, 0;
+  .operations {
+    max-width: 95%;
   }
   .btn {
-    font-size: 1rem;
-    padding: 1rem 3rem;
-  }
-  .operations__tab {
-    margin-right: 2rem;
-    text-align: center;
-  }
-  .operations__content--active {
-    display: flex;
-    flex-direction: column;
-  }
-  .operations__content {
-    display: none;
-    flex-direction: column;
     font-size: 1.2rem;
-    padding: 2.5rem 0rem 6.5rem 0rem;
   }
   .operations__content--active {
-    display: flex;
-    flex-direction: column;
+    column-gap: 2rem;
   }
-  .slider {
-    max-width: 100%;
-    height: 85rem;
+  .operations__content {
+    padding: 2.5rem 4rem 6.5rem 4rem;
   }
-  .slide {
-    height: 100%;
-    width: 80%;
+  .operations__header {
+    font-size: 1.9rem;
   }
   .testimonial {
     width: 75%;
+  }
+  .section--sign-up .btn {
+    font-size: 1.6rem;
+    padding: 2rem 4rem;
+  }
+  .footer__item {
+    margin-right: 2rem;
+  }
+  .modal__header {
+    font-size: 3rem;
+  }
+  .modal__form {
+    gap: 2rem;
   }
 }
