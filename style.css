@@ -828,6 +828,11 @@ h4 {
   .section--sign-up .btn {
     font-size: 1.3rem;
   }
+  .footer__nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+  }
   .footer__item {
     margin-right: 1rem;
   }
